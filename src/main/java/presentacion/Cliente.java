@@ -1,12 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package presentacion;
 
 /**
  *
- * @author juanc
+ * @author 233215 y 
  */
 public class Cliente extends javax.swing.JFrame {
 
@@ -27,41 +24,49 @@ public class Cliente extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        textCrearCuenta = new javax.swing.JLabel();
+        textDatosDomicilio = new javax.swing.JLabel();
         textFechaN = new javax.swing.JLabel();
-        jtextoEdad = new javax.swing.JTextField();
+        jtextoNumero = new javax.swing.JTextField();
         botonCrear = new javax.swing.JButton();
         botonRegresar = new javax.swing.JButton();
         textNombre = new javax.swing.JLabel();
         textApellidoP = new javax.swing.JLabel();
         textApellidoM = new javax.swing.JLabel();
-        textEdad = new javax.swing.JLabel();
+        textNumero = new javax.swing.JLabel();
         jtextoIngresarNombre = new javax.swing.JTextField();
         jtextoIngresarApellidoP = new javax.swing.JTextField();
         jtextoIngresarApellidoM = new javax.swing.JTextField();
         jtextoIngresarFechaN = new javax.swing.JTextField();
+        textEdad1 = new javax.swing.JLabel();
+        jtextoEdad1 = new javax.swing.JTextField();
+        jtextoCalle = new javax.swing.JTextField();
+        textCalle = new javax.swing.JLabel();
+        textColonia = new javax.swing.JLabel();
+        jtextoColonia = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
+        textCrearCuenta1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(51, 153, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        textCrearCuenta.setFont(new java.awt.Font("Arial Narrow", 1, 36)); // NOI18N
-        textCrearCuenta.setForeground(new java.awt.Color(255, 255, 255));
-        textCrearCuenta.setText("Crear Cuenta");
-        jPanel1.add(textCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
+        textDatosDomicilio.setFont(new java.awt.Font("Arial Narrow", 1, 24)); // NOI18N
+        textDatosDomicilio.setForeground(new java.awt.Color(255, 255, 255));
+        textDatosDomicilio.setText("Datos domicilio");
+        jPanel1.add(textDatosDomicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, -1, -1));
 
         textFechaN.setFont(new java.awt.Font("Arial Narrow", 1, 24)); // NOI18N
         textFechaN.setForeground(new java.awt.Color(255, 255, 255));
         textFechaN.setText("Fecha de nacimiento:");
-        jPanel1.add(textFechaN, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
+        jPanel1.add(textFechaN, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, -1));
 
-        jtextoEdad.addActionListener(new java.awt.event.ActionListener() {
+        jtextoNumero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtextoEdadActionPerformed(evt);
+                jtextoNumeroActionPerformed(evt);
             }
         });
-        jPanel1.add(jtextoEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, 240, 30));
+        jPanel1.add(jtextoNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 470, 240, 30));
 
         botonCrear.setFont(new java.awt.Font("Arial Narrow", 0, 16)); // NOI18N
         botonCrear.setText("Crear");
@@ -70,7 +75,7 @@ public class Cliente extends javax.swing.JFrame {
                 botonCrearActionPerformed(evt);
             }
         });
-        jPanel1.add(botonCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 380, 80, -1));
+        jPanel1.add(botonCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 540, 80, -1));
 
         botonRegresar.setFont(new java.awt.Font("Arial Narrow", 0, 16)); // NOI18N
         botonRegresar.setText("Regresar");
@@ -79,55 +84,99 @@ public class Cliente extends javax.swing.JFrame {
                 botonRegresarActionPerformed(evt);
             }
         });
-        jPanel1.add(botonRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, -1, -1));
+        jPanel1.add(botonRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 540, -1, -1));
 
         textNombre.setFont(new java.awt.Font("Arial Narrow", 1, 24)); // NOI18N
         textNombre.setForeground(new java.awt.Color(255, 255, 255));
         textNombre.setText("Nombre:");
-        jPanel1.add(textNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
+        jPanel1.add(textNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
 
         textApellidoP.setFont(new java.awt.Font("Arial Narrow", 1, 24)); // NOI18N
         textApellidoP.setForeground(new java.awt.Color(255, 255, 255));
         textApellidoP.setText("Apellido Paterno:");
-        jPanel1.add(textApellidoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
+        jPanel1.add(textApellidoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
 
         textApellidoM.setFont(new java.awt.Font("Arial Narrow", 1, 24)); // NOI18N
         textApellidoM.setForeground(new java.awt.Color(255, 255, 255));
         textApellidoM.setText("Apellido Materno:");
-        jPanel1.add(textApellidoM, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+        jPanel1.add(textApellidoM, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
 
-        textEdad.setFont(new java.awt.Font("Arial Narrow", 1, 24)); // NOI18N
-        textEdad.setForeground(new java.awt.Color(255, 255, 255));
-        textEdad.setText("Edad:");
-        jPanel1.add(textEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
+        textNumero.setFont(new java.awt.Font("Arial Narrow", 1, 24)); // NOI18N
+        textNumero.setForeground(new java.awt.Color(255, 255, 255));
+        textNumero.setText("Numero:");
+        jPanel1.add(textNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 470, -1, -1));
 
         jtextoIngresarNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtextoIngresarNombreActionPerformed(evt);
             }
         });
-        jPanel1.add(jtextoIngresarNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 240, 30));
+        jPanel1.add(jtextoIngresarNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 240, 30));
 
         jtextoIngresarApellidoP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtextoIngresarApellidoPActionPerformed(evt);
             }
         });
-        jPanel1.add(jtextoIngresarApellidoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 240, 30));
+        jPanel1.add(jtextoIngresarApellidoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 240, 30));
 
         jtextoIngresarApellidoM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtextoIngresarApellidoMActionPerformed(evt);
             }
         });
-        jPanel1.add(jtextoIngresarApellidoM, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 240, 30));
+        jPanel1.add(jtextoIngresarApellidoM, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 240, 30));
 
         jtextoIngresarFechaN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtextoIngresarFechaNActionPerformed(evt);
             }
         });
-        jPanel1.add(jtextoIngresarFechaN, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 240, 30));
+        jPanel1.add(jtextoIngresarFechaN, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 240, 30));
+
+        textEdad1.setFont(new java.awt.Font("Arial Narrow", 1, 24)); // NOI18N
+        textEdad1.setForeground(new java.awt.Color(255, 255, 255));
+        textEdad1.setText("Edad:");
+        jPanel1.add(textEdad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, -1, -1));
+
+        jtextoEdad1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtextoEdad1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jtextoEdad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 240, 30));
+
+        jtextoCalle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtextoCalleActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jtextoCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 390, 240, 30));
+
+        textCalle.setFont(new java.awt.Font("Arial Narrow", 1, 24)); // NOI18N
+        textCalle.setForeground(new java.awt.Color(255, 255, 255));
+        textCalle.setText("Calle:");
+        jPanel1.add(textCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, -1, -1));
+
+        textColonia.setFont(new java.awt.Font("Arial Narrow", 1, 24)); // NOI18N
+        textColonia.setForeground(new java.awt.Color(255, 255, 255));
+        textColonia.setText("Colonia:");
+        jPanel1.add(textColonia, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 430, -1, -1));
+
+        jtextoColonia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtextoColoniaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jtextoColonia, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 430, 240, 30));
+
+        jSeparator1.setForeground(new java.awt.Color(51, 0, 204));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 490, 20));
+
+        textCrearCuenta1.setFont(new java.awt.Font("Arial Narrow", 1, 36)); // NOI18N
+        textCrearCuenta1.setForeground(new java.awt.Color(255, 255, 255));
+        textCrearCuenta1.setText("Crear Cuenta");
+        jPanel1.add(textCrearCuenta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -137,15 +186,15 @@ public class Cliente extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jtextoEdadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtextoEdadActionPerformed
+    private void jtextoNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtextoNumeroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jtextoEdadActionPerformed
+    }//GEN-LAST:event_jtextoNumeroActionPerformed
 
     private void botonCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCrearActionPerformed
         // TODO add your handling code here:
@@ -170,6 +219,18 @@ public class Cliente extends javax.swing.JFrame {
     private void jtextoIngresarFechaNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtextoIngresarFechaNActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtextoIngresarFechaNActionPerformed
+
+    private void jtextoEdad1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtextoEdad1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtextoEdad1ActionPerformed
+
+    private void jtextoCalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtextoCalleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtextoCalleActionPerformed
+
+    private void jtextoColoniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtextoColoniaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtextoColoniaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -210,16 +271,24 @@ public class Cliente extends javax.swing.JFrame {
     private javax.swing.JButton botonCrear;
     private javax.swing.JButton botonRegresar;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jtextoEdad;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextField jtextoCalle;
+    private javax.swing.JTextField jtextoColonia;
+    private javax.swing.JTextField jtextoEdad1;
     private javax.swing.JTextField jtextoIngresarApellidoM;
     private javax.swing.JTextField jtextoIngresarApellidoP;
     private javax.swing.JTextField jtextoIngresarFechaN;
     private javax.swing.JTextField jtextoIngresarNombre;
+    private javax.swing.JTextField jtextoNumero;
     private javax.swing.JLabel textApellidoM;
     private javax.swing.JLabel textApellidoP;
-    private javax.swing.JLabel textCrearCuenta;
-    private javax.swing.JLabel textEdad;
+    private javax.swing.JLabel textCalle;
+    private javax.swing.JLabel textColonia;
+    private javax.swing.JLabel textCrearCuenta1;
+    private javax.swing.JLabel textDatosDomicilio;
+    private javax.swing.JLabel textEdad1;
     private javax.swing.JLabel textFechaN;
     private javax.swing.JLabel textNombre;
+    private javax.swing.JLabel textNumero;
     // End of variables declaration//GEN-END:variables
 }

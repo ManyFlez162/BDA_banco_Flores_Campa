@@ -1,5 +1,8 @@
 
 package dominio;
+
+import com.mysql.cj.x.protobuf.MysqlxDatatypes.Scalar.String;
+
 /**
  *
  * @author 233215 y 233301
@@ -107,7 +110,7 @@ public class RetiroSinC {
      * Metodo que retorna los atributos de retiro sin cuenta
      * @return 
      */
-    @Override
+    
     public String toString() {
         return "RetiroSinC{" + "folio=" + folio + ", contrasenia=" + contrasenia + ", id_transaccion=" + id_transaccion + ", cantidad=" + cantidad + ", fechaHoraRetirno=" + fechaHoraRetirno + ", id_cuenta=" + id_cuenta + '}';
     }

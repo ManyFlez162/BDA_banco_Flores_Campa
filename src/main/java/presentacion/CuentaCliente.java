@@ -87,6 +87,8 @@ public class CuentaCliente extends javax.swing.JFrame {
         });
         jPanel1.add(jtextoIdCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 240, 30));
 
+        jtextoSaldo.setMaximumSize(new java.awt.Dimension(10, 2));
+        jtextoSaldo.setMinimumSize(new java.awt.Dimension(10, 10));
         jtextoSaldo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtextoSaldoActionPerformed(evt);

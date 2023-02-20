@@ -22,4 +22,12 @@ public class Principal {
             
             IConexionBD generadorConexiones = (IConexionBD) new ConexionBD("jdbc:mysql://localhost/banco", "root", "");
             
+            IClientesDAO clientesDAO=  new ClientesDAO(generadorConexiones);
+            Cliente cliente = new Cliente ();
+            System.out.println(cliente);
+        
+        
+        System.out.println(cliente);
+    }
+    
 }

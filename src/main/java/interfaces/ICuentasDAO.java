@@ -11,8 +11,5 @@ import excepciones.PersistenciaException;
  * @author 233215 y 233301
  */
 public interface ICuentasDAO {
-    
-    Cuenta crearCuenta(Cuenta cuenta) throws PersistenciaException;
-    
-    
+    Cuenta crearCuenta() throws PersistenciaException;
 }

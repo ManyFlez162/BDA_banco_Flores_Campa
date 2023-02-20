@@ -7,18 +7,26 @@ package dominio;
 
 public class RetiroSinC {
     private String folio;
-    private int contraseña;
+    private int contrasenia;
     private int id_transaccion;
+    private float cantidad;
+    private String fechaHoraRetirno;
+    private int id_cuenta;
+    
     /**
      * Metodo contructor
      * @param folio
-     * @param contraseña
+     * @param contrasenia
      * @param id_transaccion 
+     * @param cantidad
      */
-    public RetiroSinC(String folio, int contraseña, int id_transaccion) {
+    public RetiroSinC(String folio, int contrasenia, int id_transaccion, int cantidad, String fechaHoraRetiro, int id_cuenta) {
         this.folio = folio;
-        this.contraseña = contraseña;
+        this.contrasenia = contrasenia;
         this.id_transaccion = id_transaccion;
+        this.cantidad = cantidad;
+        this.fechaHoraRetirno = fechaHoraRetiro;
+        this.id_cuenta = id_cuenta;
     } 
     /**
      * Metodo que obtiene el folio de retiro sin cuenta 
@@ -39,14 +47,14 @@ public class RetiroSinC {
      * @return 
      */
     public int getContraseña() {
-        return contraseña;
+        return contrasenia;
     }
     /**
      * Metodo que establece la contraseña del retiro sin cuenta
-     * @param contraseña
+     * @param contrasenia
      */
-    public void setContrasena(int contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasena(int contrasenia) {
+        this.contrasenia = contrasenia;
     }
     /**
      * Metodo que obtiene el id de transaccion de retiro sin cuenta 
@@ -62,13 +70,46 @@ public class RetiroSinC {
     public void setId_transaccion(int id_transaccion) {
         this.id_transaccion = id_transaccion;
     }
+
+    public int getContrasenia() {
+        return contrasenia;
+    }
+
+    public void setContrasenia(int contrasenia) {
+        this.contrasenia = contrasenia;
+    }
+
+    public float getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(float cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public String getFechaHoraRetirno() {
+        return fechaHoraRetirno;
+    }
+
+    public void setFechaHoraRetirno(String fechaHoraRetirno) {
+        this.fechaHoraRetirno = fechaHoraRetirno;
+    }
+
+    public int getId_cuenta() {
+        return id_cuenta;
+    }
+
+    public void setId_cuenta(int id_cuenta) {
+        this.id_cuenta = id_cuenta;
+    }
+    
     /**
      * Metodo que retorna los atributos de retiro sin cuenta
      * @return 
      */
     @Override
     public String toString() {
-        return "RetiroSinC{" + "folio=" + folio + ", contrase\u00f1a=" + contraseña + ", id_transaccion=" + id_transaccion + '}';
+        return "RetiroSinC{" + "folio=" + folio + ", contrasenia=" + contrasenia + ", id_transaccion=" + id_transaccion + ", cantidad=" + cantidad + ", fechaHoraRetirno=" + fechaHoraRetirno + ", id_cuenta=" + id_cuenta + '}';
     }
     
     

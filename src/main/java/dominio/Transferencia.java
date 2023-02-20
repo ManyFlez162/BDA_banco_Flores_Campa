@@ -9,11 +9,13 @@ public class Transferencia {
     private int cuentaEmisora;
     private int cuentaReceptora;
     private int id_transaccion;
+    private String fechaHoraTransaccion;
     
-    public Transferencia(int cuentaEmisora, int cuentaReceptora, int id_transaccion) {
+    public Transferencia(int cuentaEmisora, int cuentaReceptora, int id_transaccion, String fechaHoraTransaccion) {
         this.cuentaEmisora = cuentaEmisora;
         this.cuentaReceptora = cuentaReceptora;
         this.id_transaccion = id_transaccion;
+        this.fechaHoraTransaccion = fechaHoraTransaccion;
     }
     /**
      * Metodo para obtener la cuenta emisiora en transferencia
@@ -57,8 +59,5 @@ public class Transferencia {
     public void setId_transaccion(int id_transaccion) {
         this.id_transaccion = id_transaccion;
     }
-
     
-
-
 }

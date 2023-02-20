@@ -6,8 +6,8 @@
 package dominio;
 
 
-import java.util.Objects;
-import java.util.Date;
+import com.mysql.cj.x.protobuf.MysqlxDatatypes.Scalar.String;
+
 /**
  *
  * @author 233215 y 233301

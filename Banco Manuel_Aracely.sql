@@ -10,8 +10,7 @@ CREATE TABLE Cliente (
 	edad int not null default (TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE())),
     calle varchar(50),
     colonia varchar(50),
-    numero varchar(50),
-	FOREIGN KEY(id_direccion) references direccion(id_direccion)
+    numero varchar(50)
 ); 
 
 CREATE TABLE Cuenta (

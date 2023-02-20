@@ -7,16 +7,18 @@ package interfaces;
 
 import dominio.Cliente;
 import excepciones.PersistenciaException;
-import java.sql.SQLException;
-import java.util.List;
-import utils.ConfiguracionPaginado;
 
 public interface IClientesDAO {
     
-    Cliente consultar(Integer idCliente);
-    Cliente insertar(Cliente cliente) throws PersistenciaException;
-    Cliente eliminar(Cliente cliente) throws PersistenciaException;
-    List<Cliente> consultar(ConfiguracionPaginado paginado) throws PersistenciaException;
+    public Cliente registrar(Cliente cliente) throws PersistenciaException;
+    public Cliente actualizar(Cliente cliente) throws PersistenciaException;
+    
+    
+    
+//    Cliente consultar(Integer idCliente);
+//    Cliente insertar(Cliente cliente) throws PersistenciaException;
+//    Cliente eliminar(Cliente cliente) throws PersistenciaException;
+//    List<Cliente> consultar(ConfiguracionPaginado paginado) throws PersistenciaException;
 
     
     

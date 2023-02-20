@@ -1,13 +1,6 @@
 CREATE DATABASE banco;
 USE banco;
 
-CREATE TABLE Direccion(
-	id_direccion int primary key auto_increment,
-	calle varchar(50) not null,
-	colonia varchar(50) not null,
-	numero int not null
-);
-
 CREATE TABLE Cliente (
 	id_cliente int primary key auto_increment,
 	nombres varchar(50) not null,
@@ -15,7 +8,9 @@ CREATE TABLE Cliente (
 	apellido_materno varchar(50) not null,
 	fecha_nacimiento date,
 	edad int not null default (TIMESTAMPDIFF(YEAR, fecha_nacimiento, CURDATE())),
-    id_direccion int not null,
+    calle varchar(50),
+    colonia varchar(50),
+    numero varchar(50),
 	FOREIGN KEY(id_direccion) references direccion(id_direccion)
 ); 
 

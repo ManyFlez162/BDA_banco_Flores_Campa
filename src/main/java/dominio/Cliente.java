@@ -10,7 +10,7 @@ import java.util.Objects;
 import java.util.Date;
 /**
  *
- * @author 233215
+ * @author 233215 y 233301
  */
 public class Cliente {
       private Integer id;

@@ -9,13 +9,13 @@ import dominio.Cliente;
 import excepciones.PersistenciaException;
 import java.sql.SQLException;
 import java.util.List;
-import ultis.ConfiguracionPaginado;
-//meterle el persistencia exception
+import utils.ConfiguracionPaginado;
+
 public interface IClientesDAO {
     
     Cliente consultar(Integer idCliente);
     Cliente insertar(Cliente cliente) throws PersistenciaException;
-    Cliente eliminar(Cliente cliente);
+    Cliente eliminar(Cliente cliente) throws PersistenciaException;
     List<Cliente> consultar(ConfiguracionPaginado paginado) throws PersistenciaException;
 
     

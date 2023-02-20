@@ -1,0 +1,15 @@
+C:\Users\yarvi\Documents\GitHub\BDA_banco_Flores_Campa\src\main\java\dominio\Transaccion.java
+C:\Users\yarvi\Documents\GitHub\BDA_banco_Flores_Campa\src\main\java\interfaces\IConexionBD.java
+C:\Users\yarvi\Documents\GitHub\BDA_banco_Flores_Campa\src\main\java\interfaces\IClientesDAO.java
+C:\Users\yarvi\Documents\GitHub\BDA_banco_Flores_Campa\src\main\java\dominio\RetiroSinC.java
+C:\Users\yarvi\Documents\GitHub\BDA_banco_Flores_Campa\src\main\java\implementaciones\ClientesDAO.java
+C:\Users\yarvi\Documents\GitHub\BDA_banco_Flores_Campa\src\main\java\implementaciones\ConexionBD.java
+C:\Users\yarvi\Documents\GitHub\BDA_banco_Flores_Campa\src\main\java\dominio\Cuenta.java
+C:\Users\yarvi\Documents\GitHub\BDA_banco_Flores_Campa\src\main\java\interfaces\ICuentasDAO.java
+C:\Users\yarvi\Documents\GitHub\BDA_banco_Flores_Campa\src\main\java\excepciones\PersistenciaException.java
+C:\Users\yarvi\Documents\GitHub\BDA_banco_Flores_Campa\src\main\java\implementaciones\CuentasDAO.java
+C:\Users\yarvi\Documents\GitHub\BDA_banco_Flores_Campa\src\main\java\presentacion\ClientesForm.java
+C:\Users\yarvi\Documents\GitHub\BDA_banco_Flores_Campa\src\main\java\ultis\ConfiguracionPaginado.java
+C:\Users\yarvi\Documents\GitHub\BDA_banco_Flores_Campa\src\main\java\dominio\Cliente.java
+C:\Users\yarvi\Documents\GitHub\BDA_banco_Flores_Campa\src\main\java\conexionBD\Principal.java
+C:\Users\yarvi\Documents\GitHub\BDA_banco_Flores_Campa\src\main\java\dominio\Transferencia.java

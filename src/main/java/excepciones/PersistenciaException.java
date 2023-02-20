@@ -7,10 +7,10 @@ package excepciones;
 
 /**
  *
- * @author 233215
+ * @author 233215 y 233301
  */
 public class PersistenciaException extends Exception {
-public PersistenciaException() {
+    public PersistenciaException() {
     }
 
     public PersistenciaException(String message) {

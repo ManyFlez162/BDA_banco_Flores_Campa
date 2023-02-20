@@ -3,7 +3,7 @@ package dominio;
 
 /**
  *
- * @author 233215 y 
+ * @author 233215 y 233301
  */
 public class Transferencia {
     private int cuentaEmisora;

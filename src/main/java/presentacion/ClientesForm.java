@@ -10,7 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import ultis.ConfiguracionPaginado;
+import utils.ConfiguracionPaginado;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

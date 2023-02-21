@@ -214,7 +214,7 @@ public class Cliente {
     }
 
     /**
-     * Método que devuelve la información general de la clase
+     * Metodo que devuelve la información general de la clase
      * @return 
      */
     @Override

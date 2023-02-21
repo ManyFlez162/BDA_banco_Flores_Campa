@@ -1,6 +1,5 @@
 CREATE DATABASE banco;
 USE banco;
-
 CREATE TABLE Clientes (
 	id_cliente int primary key auto_increment,
 	nombres varchar(50) not null,
@@ -41,6 +40,8 @@ CREATE TABLE Retiros (
 	FOREIGN KEY(id_cuenta) references cuentas(id_cuenta)
 );
 
+select * from clientes;
+
 insert into Clientes (nombres,apellido_paterno,apellido_materno,fecha_nacimiento,calle,colonia,numero) 
 values ('Manuel Francisco','Flores','Velazquez','2003-02-16','Aguamarina','Valle Verde','1927');
 
@@ -54,24 +55,46 @@ insert into Cuentas (saldo,id_cliente) values (3000,2);
 
 select * from Cuentas;
 
+-- Trigger para transferencias
 DELIMITER //
-create trigger transferir
-after insert on transferencias
-for each row
+start transaction;
+	create trigger transferir
+	after insert on transferencias
+	for each row
+	begin
+		update Cuentas 
+		set 
+			saldo = saldo - (select cantidad from transferencias where id_transferencia=new.id_transferencia) 
+		where id_cuenta = new.id_cuenta_origen;
+        
+		update Cuentas 
+		set 
+			saldo = saldo + (select cantidad from transferencias where id_transferencia=new.id_transferencia) 
+		where id_cuenta = new.id_cuenta_destino;
+	end;
+commit;
+rollback; //
+DELIMITER ;
+
+
+-- Stored procedure para insertar cliente
+DELIMITER //
+create procedure inserta_cliente(
+	IN nombresPar varchar(50),
+    IN apellido_paternoPar varchar(50),
+    IN apellido_maternoPar varchar(50),
+    IN fecha_nacimientoPar date,
+    IN callePar varchar(50),
+    IN coloniaPar varchar(50),
+    IN numeroPar varchar(50)
+)
 begin
-	update Cuentas 
-    set saldo = saldo - (select cantidad from transferencias where id_transferencia=new.id_transferencia) 
-    where id_cuenta = new.id_cuenta_origen;
-    update Cuentas 
-    set saldo = saldo + (select cantidad from transferencias where id_transferencia=new.id_transferencia) 
-    where id_cuenta = new.id_cuenta_destino;
-end// DELIMITER ;
+    insert into clientes(nombres, apellido_paterno, apellido_materno, fecha_nacimiento, calle, colonia, numero) 
+    values (nombresPar, apellido_paternoPar, apellido_maternoPar, fecha_nacimientoPar, callePar, coloniaPar, numeroPar);
+end // 
+DELIMITER ;
 
-
-insert into transferencias (cantidad, id_cuenta_origen, id_cuenta_destino) values (400, 1, 2);
-
-select * from transferencias;
-
+-- Stored procedure para actualizar datos del cliente
 DELIMITER //
 create procedure actualiza_cliente(
 	IN id_clientePar int,
@@ -98,3 +121,10 @@ begin
     where id_cliente = id_clientePar;
 end // 
 DELIMITER ;
+
+call inserta_cliente('Perry','Orni','Torrinco','2010-10-10','calle','colonia','numero');
+call actualiza_cliente (3, 'Nane', 'Flo', 'Vel', '2010-01-01',13,'calle1','col1','num1');
+
+insert into transferencias (cantidad, id_cuenta_origen, id_cuenta_destino) values (400, 1, 2);
+
+select * from transferencias;

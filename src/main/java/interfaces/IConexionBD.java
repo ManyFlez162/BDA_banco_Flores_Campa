@@ -10,10 +10,9 @@ import java.sql.SQLException;
 
 /**
  *
- * @author Dell
+ * @author 233215 y 233301
  */
 public interface IConexionBD {
-    Connection crearConexion() throws SQLException;
     
-    
+    public Connection crearConexion() throws SQLException;
 }

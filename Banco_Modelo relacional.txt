@@ -1,0 +1,38 @@
+Clientes (
+    id_cliente :entero,
+    nombres :texto,
+    apellido_paterno :texto,
+    apellido_materno :texto,
+    fecha_nacimiento :fecha,
+    edad :entero,
+    calle: texto,
+    colonia: texto,
+    numero: texto
+) 
+edad que se obtiene de restar fecha_nacimiento a la fecha actual
+
+Cuentas (
+    id_cuenta :entero,
+    fecha_apertura :fecha,
+    saldo :decimal,
+    id_cliente :entero
+) id_cliente que pertenece a Cliente
+
+Transferencias (
+    id_transaccion :entero,
+    fecha_hora_transaccion :fecha_hora,
+    cantidad :decimal,
+    id_cuenta_origen :entero,
+    id_cuenta_destino :entero,
+) id_cuenta_origen que pertenece a Cuenta
+id_cuenta_destino que pertenece a Cuenta
+
+Retiros(
+    id_retiro_sin_cuenta :entero,
+    fecha_hora_transaccion :fecha_hora,
+    contraseña :entero,
+    cantidad :decimal,
+    id_cuenta :entero
+    folio: entero
+) 
+id_cuenta que pertenece a cuenta

@@ -5,9 +5,6 @@
  */
 package dominio;
 
-
-import com.mysql.cj.x.protobuf.MysqlxDatatypes.Scalar.String;
-
 /**
  *
  * @author 233215 y 233301
@@ -29,14 +26,34 @@ public class Cliente {
     public Cliente() {
     }
 
+    /**
+     * Método constructor sin ID ni Edad
+     * @param nombres
+     * @param apellido_Paterno
+     * @param apellido_Materno
+     * @param fecha_Nacimiento
+     * @param calle
+     * @param colonia
+     * @param numero 
+     */
+    public Cliente(String nombres, String apellido_Paterno, String apellido_Materno, String fecha_Nacimiento, String calle, String colonia, String numero) {
+        this.nombres = nombres;
+        this.apellido_Paterno = apellido_Paterno;
+        this.apellido_Materno = apellido_Materno;
+        this.fecha_Nacimiento = fecha_Nacimiento;
+        this.calle = calle;
+        this.colonia = colonia;
+        this.numero = numero;
+    }
+    
     public Cliente(Integer id, String nombres, String apellido_Paterno, String apellido_Materno, 
-            int edad, String fecha_Nacimiento, String calle, String colonia, String numero) {
+            String fecha_Nacimiento, int edad, String calle, String colonia, String numero) {
         this.id = id;
         this.nombres = nombres;
         this.apellido_Paterno = apellido_Paterno;
         this.apellido_Materno = apellido_Materno;
-        this.edad = edad;
         this.fecha_Nacimiento = fecha_Nacimiento;
+        this.edad = edad;
         this.calle = calle;
         this.colonia = colonia;
         this.numero = numero;

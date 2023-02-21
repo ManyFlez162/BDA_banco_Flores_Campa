@@ -8,17 +8,15 @@ package interfaces;
 import dominio.Cliente;
 import excepciones.PersistenciaException;
 
+/**
+ * 
+ * @author 233215 y 233301
+ */
 public interface IClientesDAO {
     
     public Cliente registrar(Cliente cliente) throws PersistenciaException;
     public Cliente actualizar(Cliente cliente) throws PersistenciaException;
-    
-    
-    
-//    Cliente consultar(Integer idCliente);
-//    Cliente insertar(Cliente cliente) throws PersistenciaException;
-//    Cliente eliminar(Cliente cliente) throws PersistenciaException;
-//    List<Cliente> consultar(ConfiguracionPaginado paginado) throws PersistenciaException;
+    public Cliente consultar(Integer idCliente);
 
     
     

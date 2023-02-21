@@ -1,4 +1,7 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
+ */
 package interfaces;
 
 import dominio.Transferencia;
@@ -6,15 +9,10 @@ import excepciones.PersistenciaException;
 
 /**
  *
- * @author 233215 y 
+ * @author 233215 y 233301
  */
 public interface ITransferenciasDAO {
-    /**
-     * Metodo que inicializa las variables suma y resta para la clase transferencia
-     * @param transferencia
-     * @return
-     * @throws PersistenciaException 
-     */
+    
     public Transferencia transferir(Transferencia transferencia) throws PersistenciaException;
     public int sumar(int cantidad);
     public int restar(int cantidad);

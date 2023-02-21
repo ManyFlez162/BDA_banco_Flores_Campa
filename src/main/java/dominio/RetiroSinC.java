@@ -1,8 +1,5 @@
 
 package dominio;
-
-import com.mysql.cj.x.protobuf.MysqlxDatatypes.Scalar.String;
-
 /**
  *
  * @author 233215 y 233301
@@ -11,10 +8,19 @@ import com.mysql.cj.x.protobuf.MysqlxDatatypes.Scalar.String;
 public class RetiroSinC {
     private String folio;
     private int contrasenia;
-    private int id_transaccion;
+    private int id_retiro;
     private float cantidad;
-    private String fechaHoraRetirno;
+    private String fechaHoraRetiro;
     private int id_cuenta;
+
+    public RetiroSinC(String folio, int contrasenia, float cantidad, int id_cuenta) {
+        this.folio = folio;
+        this.contrasenia = contrasenia;
+        this.cantidad = cantidad;
+        this.id_cuenta = id_cuenta;
+    }
+    
+    
     
     /**
      * Metodo contructor
@@ -23,12 +29,12 @@ public class RetiroSinC {
      * @param id_transaccion 
      * @param cantidad
      */
-    public RetiroSinC(String folio, int contrasenia, int id_transaccion, int cantidad, String fechaHoraRetiro, int id_cuenta) {
+    public RetiroSinC(String folio, int contrasenia, int id_retiro, int cantidad, String fechaHoraRetiro, int id_cuenta) {
         this.folio = folio;
         this.contrasenia = contrasenia;
-        this.id_transaccion = id_transaccion;
+        this.id_retiro = id_retiro;
         this.cantidad = cantidad;
-        this.fechaHoraRetirno = fechaHoraRetiro;
+        this.fechaHoraRetiro = fechaHoraRetiro;
         this.id_cuenta = id_cuenta;
     } 
     /**
@@ -64,14 +70,14 @@ public class RetiroSinC {
      * @return 
      */
     public int getId_transaccion() {
-        return id_transaccion;
+        return id_retiro;
     }
     /**
      * Metodo que establece la transaccion del retiro sin cuenta
      * @param id_transaccion 
      */
     public void setId_transaccion(int id_transaccion) {
-        this.id_transaccion = id_transaccion;
+        this.id_retiro = id_transaccion;
     }
 
     public int getContrasenia() {
@@ -91,11 +97,11 @@ public class RetiroSinC {
     }
 
     public String getFechaHoraRetirno() {
-        return fechaHoraRetirno;
+        return fechaHoraRetiro;
     }
 
-    public void setFechaHoraRetirno(String fechaHoraRetirno) {
-        this.fechaHoraRetirno = fechaHoraRetirno;
+    public void setFechaHoraRetirno(String fechaHoraRetiro) {
+        this.fechaHoraRetiro = fechaHoraRetiro;
     }
 
     public int getId_cuenta() {
@@ -110,9 +116,9 @@ public class RetiroSinC {
      * Metodo que retorna los atributos de retiro sin cuenta
      * @return 
      */
-    
+    @Override
     public String toString() {
-        return "RetiroSinC{" + "folio=" + folio + ", contrasenia=" + contrasenia + ", id_transaccion=" + id_transaccion + ", cantidad=" + cantidad + ", fechaHoraRetirno=" + fechaHoraRetirno + ", id_cuenta=" + id_cuenta + '}';
+        return "RetiroSinC{" + "folio=" + folio + ", contrasenia=" + contrasenia + ", id_retiro=" + id_retiro + ", cantidad=" + cantidad + ", fechaHoraRetiro=" + fechaHoraRetiro + ", id_cuenta=" + id_cuenta + '}';
     }
     
     

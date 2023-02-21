@@ -9,13 +9,10 @@ import dominio.RetiroSinC;
 
 /**
  *
- * @author 233215 y 
+ * @author 233215 y 233301
  */
 public interface IRetirosDAO {
-    /**
-     * Metodo que ayuda a retirar dinero 
-     * @return 
-     */
+    
     public RetiroSinC retirar();
     
 }

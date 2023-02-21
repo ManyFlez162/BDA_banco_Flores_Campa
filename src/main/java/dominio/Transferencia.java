@@ -6,58 +6,69 @@ package dominio;
  * @author 233215 y 233301
  */
 public class Transferencia {
-    private int cuentaEmisora;
-    private int cuentaReceptora;
-    private int id_transaccion;
+    private int idTransferencia;
+    private int idCuentaEmisora;
+    private int idCuentaReceptora;
     private String fechaHoraTransaccion;
-    
-    public Transferencia(int cuentaEmisora, int cuentaReceptora, int id_transaccion, String fechaHoraTransaccion) {
-        this.cuentaEmisora = cuentaEmisora;
-        this.cuentaReceptora = cuentaReceptora;
-        this.id_transaccion = id_transaccion;
+    private float cantidad;
+
+    public Transferencia(int idTransferencia, int idCuentaEmisora, int idCuentaReceptora, String fechaHoraTransaccion, float cantidad) {
+        this.idTransferencia = idTransferencia;
+        this.idCuentaEmisora = idCuentaEmisora;
+        this.idCuentaReceptora = idCuentaReceptora;
+        this.fechaHoraTransaccion = fechaHoraTransaccion;
+        this.cantidad = cantidad;
+    }
+
+    public Transferencia(int idCuentaEmisora, int idCuentaReceptora, float cantidad) {
+        this.idCuentaEmisora = idCuentaEmisora;
+        this.idCuentaReceptora = idCuentaReceptora;
+        this.cantidad = cantidad;
+    }
+
+    public int getIdTransferencia() {
+        return idTransferencia;
+    }
+
+    public void setIdTransferencia(int idTransferencia) {
+        this.idTransferencia = idTransferencia;
+    }
+
+    public int getIdCuentaEmisora() {
+        return idCuentaEmisora;
+    }
+
+    public void setIdCuentaEmisora(int idCuentaEmisora) {
+        this.idCuentaEmisora = idCuentaEmisora;
+    }
+
+    public int getIdCuentaReceptora() {
+        return idCuentaReceptora;
+    }
+
+    public void setIdCuentaReceptora(int idCuentaReceptora) {
+        this.idCuentaReceptora = idCuentaReceptora;
+    }
+
+    public String getFechaHoraTransaccion() {
+        return fechaHoraTransaccion;
+    }
+
+    public void setFechaHoraTransaccion(String fechaHoraTransaccion) {
         this.fechaHoraTransaccion = fechaHoraTransaccion;
     }
-    /**
-     * Metodo para obtener la cuenta emisiora en transferencia
-     * @return 
-     */
-    public int getCuentaEmisora() {
-        return cuentaEmisora;
+
+    public float getCantidad() {
+        return cantidad;
     }
-    /** 
-     * Metodo para establecer la cuenta emisora en transferencia
-     * @param cuentaEmisora 
-     */
-    public void setCuentaEmisora(int cuentaEmisora) {
-        this.cuentaEmisora = cuentaEmisora;
+
+    public void setCantidad(float cantidad) {
+        this.cantidad = cantidad;
     }
-    /**
-     * Metodo para obtener la cuenta receptora en transferencia
-     * @return 
-     */
-    public int getCuentaReceptora() {
-        return cuentaReceptora;
-    }
-    /**
-     * Metodo para establecer la cuenta receptora en transferencia
-     * @param cuentaReceptora 
-     */
-    public void setCuentaReceptora(int cuentaReceptora) {
-        this.cuentaReceptora = cuentaReceptora;
-    }
-    /**
-     * Metodo para obtener el id de transaccion en transferencia
-     * @return 
-     */
-    public int getId_transaccion() {
-        return id_transaccion;
-    }
-    /**
-     * Metodo para establecer el id en transferencia
-     * @param id_transaccion 
-     */
-    public void setId_transaccion(int id_transaccion) {
-        this.id_transaccion = id_transaccion;
+
+    @Override
+    public String toString() {
+        return "Transferencia{" + "idTransferencia=" + idTransferencia + ", idCuentaEmisora=" + idCuentaEmisora + ", idCuentaReceptora=" + idCuentaReceptora + ", fechaHoraTransaccion=" + fechaHoraTransaccion + ", cantidad=" + cantidad + '}';
     }
     
 }

@@ -1,5 +1,6 @@
 CREATE DATABASE banco;
 USE banco;
+
 CREATE TABLE Clientes (
 	id_cliente int primary key auto_increment,
 	nombres varchar(50) not null,
@@ -123,8 +124,9 @@ end //
 DELIMITER ;
 
 call inserta_cliente('Perry','Orni','Torrinco','2010-10-10','calle','colonia','numero');
-call actualiza_cliente (3, 'Nane', 'Flo', 'Vel', '2010-01-01',13,'calle1','col1','num1');
+call actualiza_cliente (4, 'Nane', 'Flo', 'Vel', '2010-01-01',13,'calle1','col1','num1');
 
 insert into transferencias (cantidad, id_cuenta_origen, id_cuenta_destino) values (400, 1, 2);
 
 select * from transferencias;
+

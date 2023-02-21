@@ -4,6 +4,7 @@
  */
 package implementaciones;
 
+import dominio.Cliente;
 import dominio.Cuenta;
 import excepciones.PersistenciaException;
 import interfaces.IConexionBD;
@@ -33,23 +34,13 @@ public class CuentasDAO implements ICuentasDAO{
     
     @Override
     public Cuenta crearCuenta(Cuenta cuenta) throws PersistenciaException {
-        String codigoSQL = "insert into clientes"
-                    + "(nombres, apellido_paterno, apellido_materno, fecha_nacimiento, calle, colonia, numero) "
-                    + "values(?, ?, ?, ?, ?, ?, ?)";
+        String codigoSQL = "insert into cuentas (saldo,id_cliente) values (?, ?);";
         
         try (Connection conexion = generadorConexiones.crearConexion();
             PreparedStatement comando = conexion.prepareStatement(codigoSQL, Statement.RETURN_GENERATED_KEYS);){
             
-            
-            
-            
-//            comando.setString(1, conexion.getNombres());
-//            comando.setString(2, cliente.getApellido_Paterno());
-//            comando.setString(3, cliente.getApellido_Materno());
-//            comando.setString(4, cliente.getFecha_Nacimiento());
-//            comando.setString(5, cliente.getCalle());
-//            comando.setString(6, cliente.getColonia());
-//            comando.setString(7, cliente.getNumero());
+            comando.setFloat(1, cuenta.getSaldo());
+            comando.setInt(2, cuenta.getId_cliente());
             
             comando.executeUpdate();
             
@@ -57,32 +48,127 @@ public class CuentasDAO implements ICuentasDAO{
             if(llavesGeneradas.next()){
                 int posicionLlavePrimaria = 1;
                 Integer llavePrimaria = llavesGeneradas.getInt(posicionLlavePrimaria);
-                cliente.setId(llavePrimaria);
-                return cliente;
+                //cuenta.setId_cuenta(llavePrimaria);
+                cuenta = this.consultar(llavePrimaria);
+                return cuenta;
             }
             
-            throw new PersistenciaException("Cliente registrado, pero id no generado");
-            
+            throw new PersistenciaException("Cuenta registrada, pero id no generado");
             
         } catch(SQLException e){
             LOG.log(Level.SEVERE, e.getMessage());
-            throw new PersistenciaException("No fue posible registrar al cliente");
+            throw new PersistenciaException("No fue posible registrar la cuenta");
         }
     }
 
     @Override
-    public Cuenta cancelar(Cuenta cuenta) throws PersistenciaException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Cuenta cancelar(int idCuenta) throws PersistenciaException {
+        try{
+            Connection conexion = generadorConexiones.crearConexion();
+            Statement comandoSql = conexion.createStatement();
+            String codigoSQL = String.format("update cuentas set saldo = 0 where id_cuenta=%d;",
+            idCuenta);
+            
+            int numeroRegistrosAfectados = comandoSql.executeUpdate(codigoSQL);
+            conexion.close();
+
+            Cuenta cuenta;
+            if(numeroRegistrosAfectados == 1){
+                cuenta=this.consultar(idCuenta);
+                return cuenta;
+            }else{
+                return null;
+            }
+        }catch (SQLException e){
+            LOG.log(Level.SEVERE, e.getMessage());
+            throw new PersistenciaException("No fue posible cancelar la cuenta");
+        }
     }
 
     @Override
-    public Cuenta aumentarSaldo(int cantidad) throws PersistenciaException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Cuenta aumentarSaldo(float cantidad, int idCuenta) throws PersistenciaException {
+        try{
+            Connection conexion = generadorConexiones.crearConexion();
+            Statement comandoSql = conexion.createStatement();
+            String codigoSQL = String.format("update cuentas set saldo = saldo + %f where id_cuenta=%d;",
+            cantidad,idCuenta);
+            
+            int numeroRegistrosAfectados = comandoSql.executeUpdate(codigoSQL);
+            conexion.close();
+
+            Cuenta cuenta;
+            if(numeroRegistrosAfectados == 1){
+                cuenta=this.consultar(idCuenta);
+                return cuenta;
+            }else{
+                return null;
+            }
+        }catch (SQLException e){
+            LOG.log(Level.SEVERE, e.getMessage());
+            throw new PersistenciaException("No fue posible sumar dinero a la cuenta");
+        }
     }
 
     @Override
-    public Cuenta disminuirSaldo(int cantidad) throws PersistenciaException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Cuenta disminuirSaldo(float cantidad, int idCuenta) throws PersistenciaException {
+        try{
+            Connection conexion = generadorConexiones.crearConexion();
+            Statement comandoSql = conexion.createStatement();
+            String codigoSQL = String.format("update cuentas set saldo = saldo - %f where id_cuenta=%d;",
+            cantidad,idCuenta);
+            
+            Cuenta cuenta=this.consultar(idCuenta);
+            cuenta=this.consultar(idCuenta);
+            
+            if(cantidad>cuenta.getSaldo()){
+                System.out.println("No quedará suficiente dinero en la cuenta");
+            } else{
+                int numeroRegistrosAfectados = comandoSql.executeUpdate(codigoSQL);
+                conexion.close();
+
+                if(numeroRegistrosAfectados == 1){
+                    cuenta=this.consultar(idCuenta);
+                    return cuenta;
+                }else{
+                    return null;
+                }
+            }
+            
+            return null;
+            
+        }catch (SQLException e){
+            LOG.log(Level.SEVERE, e.getMessage());
+            throw new PersistenciaException("No fue posible quitar dinero a la cuenta");
+        }
     }
+
+    @Override
+    public Cuenta consultar(int idCuenta) {
+        String codigoSQL = "select * from cuentas where id_cuenta= ?";
+        
+        try(Connection conexion = generadorConexiones.crearConexion();
+            PreparedStatement comando= conexion.prepareStatement(codigoSQL);){
+            
+            comando.setInt(1, idCuenta);
+            ResultSet registro=  comando.executeQuery();
+            
+            Cuenta cuenta = null;
+            if(registro.next()){ 
+                int id = registro.getInt("id_cuenta");
+                float saldo = registro.getFloat("saldo");
+                String fechaApertura = registro.getString("fecha_apertura");
+                int idCliente = registro.getInt("id_cliente");
+                
+                cuenta=new Cuenta(id,saldo,fechaApertura,idCliente);
+            }
+            
+            return cuenta;
+        } catch(SQLException e){
+            LOG.log(Level.SEVERE, e.getMessage());
+            return null;
+        }
+    }
+    
+    
     
 }

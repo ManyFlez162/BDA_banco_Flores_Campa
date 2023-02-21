@@ -13,8 +13,9 @@ import excepciones.PersistenciaException;
 public interface ICuentasDAO {
     
     public Cuenta crearCuenta(Cuenta cuenta) throws PersistenciaException;
-    public Cuenta cancelar(Cuenta cuenta) throws PersistenciaException;
-    public Cuenta aumentarSaldo(int cantidad) throws PersistenciaException;
-    public Cuenta disminuirSaldo(int cantidad) throws PersistenciaException;
+    public Cuenta cancelar(int idCuenta) throws PersistenciaException;
+    public Cuenta aumentarSaldo(float cantidad, int idCuenta) throws PersistenciaException;
+    public Cuenta disminuirSaldo(float cantidad, int idCuenta) throws PersistenciaException;
+    public Cuenta consultar(int idCuenta);
     
 }

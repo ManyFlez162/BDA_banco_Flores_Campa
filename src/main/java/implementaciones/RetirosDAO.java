@@ -8,7 +8,7 @@ import interfaces.IRetirosDAO;
 
 /**
  *
- * @author yarvi
+ * @author 233215 y 233301
  */
 public class RetirosDAO implements IRetirosDAO{
     

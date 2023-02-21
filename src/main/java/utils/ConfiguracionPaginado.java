@@ -4,40 +4,45 @@ package utils;
  * @author Aracely Campa Quintana   id: 233215
  */
 public class ConfiguracionPaginado {
-    private int pagina;//Numero de pagina
-    private int conteo;//Elementos por pagina
+    private int numeroPagina;
+    private int elementosPorPagina;
+
+    public ConfiguracionPaginado(int numeroPagina, int elementosPorPagina) {
+        this.numeroPagina = numeroPagina;
+        this.elementosPorPagina = elementosPorPagina;
+    }
+
+    public ConfiguracionPaginado() {
+        this.numeroPagina = 0;
+        this.elementosPorPagina = 5;
+    }
+
+    public int getNumeroPagina() {
+        return numeroPagina;
+    }
+
+    public void setNumeroPagina(int numeroPagina) {
+        this.numeroPagina = numeroPagina;
+    }
+
+    public int getElementosPorPagina() {
+        return elementosPorPagina;
+    }
+
+    public void setElementosPorPagina(int elementosPorPagina) {
+        this.elementosPorPagina = elementosPorPagina;
+    }
     
-     
-
-    public ConfiguracionPaginado(int pagina, int conteo) {
-        this.pagina = 0;
-        this.conteo = 5;
-    }
-   
-    public int getPagina() {
-        return pagina;
-    }
-
-    public void setPagina(int pagina) {
-        this.pagina = pagina;
-    }
-
-    public int getConteo() {
-        return conteo;
-    }
-
-    public void setConteo(int conteo) {
-        this.conteo = conteo;
-    }
     public int getElementosASaltar(){
-        return this.pagina+this.conteo;
+        return this.numeroPagina * this.elementosPorPagina;
     }
+    
     public void avanzarPagina(){
-        this.pagina++;
+        this.numeroPagina++;
     }
+    
     public void retrocederPagina(){
-       if(this.pagina>0){
-        this.pagina--;
+        if(this.numeroPagina>0)
+            this.numeroPagina--;
     }
-}
 }

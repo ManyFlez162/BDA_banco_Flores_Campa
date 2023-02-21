@@ -36,6 +36,11 @@ public class Cuenta {
         this.fecha_apertura = fecha_apertura;
         this.id_cliente = id_cliente;
     }
+
+    public Cuenta(float saldo, int id_cliente) {
+        this.saldo = saldo;
+        this.id_cliente = id_cliente;
+    }
     
     /**
      * Metodo que obtiene el id de cuenta

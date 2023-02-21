@@ -6,6 +6,8 @@ package interfaces;
 
 import dominio.Transferencia;
 import excepciones.PersistenciaException;
+import java.util.List;
+import utils.ConfiguracionPaginado;
 
 /**
  *
@@ -14,7 +16,8 @@ import excepciones.PersistenciaException;
 public interface ITransferenciasDAO {
     
     public Transferencia transferir(Transferencia transferencia) throws PersistenciaException;
-    public int sumar(int cantidad);
-    public int restar(int cantidad);
+    public Transferencia consultar(int idTransferencia);
+    public List<Transferencia> consultar(ConfiguracionPaginado configPaginado) throws PersistenciaException;
+    
     
 }

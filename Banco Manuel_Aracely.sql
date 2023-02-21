@@ -71,3 +71,30 @@ end// DELIMITER ;
 insert into transferencias (cantidad, id_cuenta_origen, id_cuenta_destino) values (400, 1, 2);
 
 select * from transferencias;
+
+DELIMITER //
+create procedure actualiza_cliente(
+	IN id_clientePar int,
+	IN nombresPar varchar(50),
+    IN apellido_paternoPar varchar(50),
+    IN apellido_maternoPar varchar(50),
+    IN fecha_nacimientoPar date,
+    IN edadPar int,
+    IN callePar varchar(50),
+    IN coloniaPar varchar(50),
+    IN numeroPar varchar(50)
+)
+begin
+    update Clientes
+    set 
+		nombres = nombresPar, 
+		apellido_paterno = apellido_paternoPar, 
+        apellido_materno = apellido_maternoPar,
+        fecha_nacimiento = fecha_nacimientoPar,
+        edad = edadPar,
+        calle = callePar,
+        colonia = coloniaPar,
+        numero = numeroPar
+    where id_cliente = id_clientePar;
+end // 
+DELIMITER ;

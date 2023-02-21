@@ -1,7 +1,7 @@
 
 package utils;
 /**
- * @author Aracely Campa Quintana   id: 233215
+ * @author 233215 y 233301
  */
 public class ConfiguracionPaginado {
     private int numeroPagina;

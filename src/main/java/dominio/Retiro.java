@@ -5,7 +5,7 @@ package dominio;
  * @author 233215 y 233301
  */
 
-public class RetiroSinC {
+public class Retiro {
     private String folio;
     private int contrasenia;
     private int id_retiro;
@@ -13,23 +13,44 @@ public class RetiroSinC {
     private String fechaHoraRetiro;
     private int id_cuenta;
 
-    public RetiroSinC(String folio, int contrasenia, float cantidad, int id_cuenta) {
+    /**
+     * Método constructor sin id ni fecha de retiro
+     * @param folio
+     * @param contrasenia
+     * @param cantidad
+     * @param id_cuenta 
+     */
+    public Retiro(String folio, int contrasenia, float cantidad, int id_cuenta) {
         this.folio = folio;
         this.contrasenia = contrasenia;
         this.cantidad = cantidad;
         this.id_cuenta = id_cuenta;
     }
-    
-    
+
+    /**
+     * Método constructor sin folio ni contraseña
+     * @param id_retiro
+     * @param cantidad
+     * @param fechaHoraRetiro
+     * @param id_cuenta 
+     */
+    public Retiro(int id_retiro, float cantidad, String fechaHoraRetiro, int id_cuenta) {
+        this.id_retiro = id_retiro;
+        this.cantidad = cantidad;
+        this.fechaHoraRetiro = fechaHoraRetiro;
+        this.id_cuenta = id_cuenta;
+    }
     
     /**
-     * Metodo contructor
+     * Método constructor
      * @param folio
      * @param contrasenia
-     * @param id_transaccion 
+     * @param id_retiro
      * @param cantidad
+     * @param fechaHoraRetiro
+     * @param id_cuenta 
      */
-    public RetiroSinC(String folio, int contrasenia, int id_retiro, int cantidad, String fechaHoraRetiro, int id_cuenta) {
+    public Retiro(String folio, int contrasenia, int id_retiro, int cantidad, String fechaHoraRetiro, int id_cuenta) {
         this.folio = folio;
         this.contrasenia = contrasenia;
         this.id_retiro = id_retiro;
@@ -80,18 +101,34 @@ public class RetiroSinC {
         this.id_retiro = id_transaccion;
     }
 
+    /**
+     * Metodo que te devuelve la contrasenia
+     * @return 
+     */
     public int getContrasenia() {
         return contrasenia;
     }
 
+    /**
+     * Método que establece la contrasenia
+     * @param contrasenia 
+     */
     public void setContrasenia(int contrasenia) {
         this.contrasenia = contrasenia;
     }
 
+    /**
+     * Método que devuelve el monto
+     * @return 
+     */
     public float getCantidad() {
         return cantidad;
     }
 
+    /**
+     * Método que establece el monto
+     * @param cantidad 
+     */
     public void setCantidad(float cantidad) {
         this.cantidad = cantidad;
     }

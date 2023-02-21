@@ -24,7 +24,7 @@ import java.util.logging.Logger;
  */
 public class CuentasDAO implements ICuentasDAO{
 
-    private static final Logger LOG = Logger.getLogger(ClientesDAO.class.getName());
+    private static final Logger LOG = Logger.getLogger(CuentasDAO.class.getName());
     
     private final IConexionBD generadorConexiones;
 

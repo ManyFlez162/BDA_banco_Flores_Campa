@@ -3,20 +3,40 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package presentacion;
+import dominio.Transferencia;
+import excepciones.PersistenciaException;
+import implementaciones.TransferenciasDAO;
+import interfaces.ITransferenciasDAO;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
- * @author juanc
+ * @author 233215 y 233301
  */
-public class Transferencia extends javax.swing.JFrame {
+public class TransferenciaForm extends javax.swing.JFrame {
 
+    private static final Logger LOG = Logger.getLogger(TransferenciasDAO.class.getName());
+    
+    ITransferenciasDAO transferenciasDAO;
+    
     /**
      * Creates new form Transferencia
      */
-    public Transferencia() {
+    public TransferenciaForm() {
         initComponents();
+        setLocationRelativeTo(null);
+        transferenciasDAO=null;
     }
 
+    private void confirmarTransferencia(Transferencia transf){
+        try{
+            transferenciasDAO.transferir(transf);
+        } catch(PersistenciaException e){
+            LOG.log(Level.SEVERE, e.getMessage());
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,10 +52,10 @@ public class Transferencia extends javax.swing.JFrame {
         botonEnviar = new javax.swing.JButton();
         botonRegresar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        jtextoMonto = new javax.swing.JTextField();
+        txfCantidad = new javax.swing.JTextField();
+        txfCuentaReceptora = new javax.swing.JTextField();
+        txfCuentaEmisora = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,16 +95,19 @@ public class Transferencia extends javax.swing.JFrame {
         jLabel1.setText("Cantidad");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
 
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 170, 30));
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
-        jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 170, 30));
-
         jLabel2.setFont(new java.awt.Font("Arial Narrow", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Cuenta Receptora");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
-        jPanel1.add(jtextoMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 200, 30));
+        jPanel1.add(txfCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 200, 30));
+
+        txfCuentaReceptora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txfCuentaReceptoraActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txfCuentaReceptora, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 190, -1));
+        jPanel1.add(txfCuentaEmisora, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 190, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -102,11 +125,23 @@ public class Transferencia extends javax.swing.JFrame {
 
     private void botonEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEnviarActionPerformed
         // TODO add your handling code here:
+        float cantidad = Float.parseFloat(txfCantidad.getText());
+        int idEmisor = Integer.parseInt(txfCuentaEmisora.getText());
+        int idDestino = Integer.parseInt(txfCuentaReceptora.getText());
+        
+        Transferencia transf = new Transferencia(idEmisor, idDestino, cantidad);
+        
+        this.confirmarTransferencia(transf);
+        
     }//GEN-LAST:event_botonEnviarActionPerformed
 
     private void botonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botonRegresarActionPerformed
+
+    private void txfCuentaReceptoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfCuentaReceptoraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txfCuentaReceptoraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -125,20 +160,21 @@ public class Transferencia extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Transferencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TransferenciaForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Transferencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TransferenciaForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Transferencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TransferenciaForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Transferencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TransferenciaForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Transferencia().setVisible(true);
+                new TransferenciaForm().setVisible(true);
             }
         });
     }
@@ -146,13 +182,13 @@ public class Transferencia extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonEnviar;
     private javax.swing.JButton botonRegresar;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jtextoMonto;
     private javax.swing.JLabel textIngresar;
     private javax.swing.JLabel textRetiroSC;
+    private javax.swing.JTextField txfCantidad;
+    private javax.swing.JTextField txfCuentaEmisora;
+    private javax.swing.JTextField txfCuentaReceptora;
     // End of variables declaration//GEN-END:variables
 }

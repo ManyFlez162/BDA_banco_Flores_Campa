@@ -4,19 +4,42 @@
  */
 package presentacion;
 
+import dominio.Cliente;
+import excepciones.PersistenciaException;
+import implementaciones.ClientesDAO;
+import interfaces.IClientesDAO;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+
 /**
  *
- * @author juanc
+ * @author 233215 y 233301
  */
-public class Cliente extends javax.swing.JFrame {
-
+public class ClienteForm extends javax.swing.JFrame {
+    
+    private static final Logger LOG = Logger.getLogger(ClientesDAO.class.getName());
+    
+    private final IClientesDAO clientesDAO;
+    
     /**
      * Creates new form Cliente
      */
-    public Cliente() {
+    public ClienteForm() {
         initComponents();
+        setLocationRelativeTo(null);
+        clientesDAO=null;
     }
 
+    private void registrarCliente(Cliente cliente){
+        try{
+            clientesDAO.registrar(cliente);
+        }catch(PersistenciaException e){
+            LOG.log(Level.SEVERE, e.getMessage());
+        }
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,11 +50,11 @@ public class Cliente extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        textCrearCuenta = new javax.swing.JLabel();
+        jlbRegistroCliente = new javax.swing.JLabel();
         textFechaN = new javax.swing.JLabel();
-        jtextoEdad = new javax.swing.JTextField();
-        botonCrear = new javax.swing.JButton();
-        botonRegresar = new javax.swing.JButton();
+        txfNumero = new javax.swing.JTextField();
+        jbtnRegistrar = new javax.swing.JButton();
+        jbtnRegresar = new javax.swing.JButton();
         textNombre = new javax.swing.JLabel();
         textApellidoP = new javax.swing.JLabel();
         textApellidoM = new javax.swing.JLabel();
@@ -40,46 +63,52 @@ public class Cliente extends javax.swing.JFrame {
         jtextoIngresarApellidoP = new javax.swing.JTextField();
         jtextoIngresarApellidoM = new javax.swing.JTextField();
         jtextoIngresarFechaN = new javax.swing.JTextField();
+        textEdad2 = new javax.swing.JLabel();
+        textEdad3 = new javax.swing.JLabel();
+        txfCalle = new javax.swing.JTextField();
+        txfColonia = new javax.swing.JTextField();
+        jlbRegistroCliente1 = new javax.swing.JLabel();
+        jlbRegistroCliente2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(51, 153, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        textCrearCuenta.setFont(new java.awt.Font("Arial Narrow", 1, 36)); // NOI18N
-        textCrearCuenta.setForeground(new java.awt.Color(255, 255, 255));
-        textCrearCuenta.setText("Crear Cuenta");
-        jPanel1.add(textCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
+        jlbRegistroCliente.setFont(new java.awt.Font("Arial Narrow", 1, 36)); // NOI18N
+        jlbRegistroCliente.setForeground(new java.awt.Color(255, 255, 255));
+        jlbRegistroCliente.setText("Domicilio");
+        jPanel1.add(jlbRegistroCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, -1, -1));
 
         textFechaN.setFont(new java.awt.Font("Arial Narrow", 1, 24)); // NOI18N
         textFechaN.setForeground(new java.awt.Color(255, 255, 255));
         textFechaN.setText("Fecha de nacimiento:");
         jPanel1.add(textFechaN, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
 
-        jtextoEdad.addActionListener(new java.awt.event.ActionListener() {
+        txfNumero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtextoEdadActionPerformed(evt);
+                txfNumeroActionPerformed(evt);
             }
         });
-        jPanel1.add(jtextoEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, 240, 30));
+        jPanel1.add(txfNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 450, 240, 30));
 
-        botonCrear.setFont(new java.awt.Font("Arial Narrow", 0, 16)); // NOI18N
-        botonCrear.setText("Crear");
-        botonCrear.addActionListener(new java.awt.event.ActionListener() {
+        jbtnRegistrar.setFont(new java.awt.Font("Arial Narrow", 0, 16)); // NOI18N
+        jbtnRegistrar.setText("Registrar");
+        jbtnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonCrearActionPerformed(evt);
+                jbtnRegistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(botonCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 380, 80, -1));
+        jPanel1.add(jbtnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 510, 80, -1));
 
-        botonRegresar.setFont(new java.awt.Font("Arial Narrow", 0, 16)); // NOI18N
-        botonRegresar.setText("Regresar");
-        botonRegresar.addActionListener(new java.awt.event.ActionListener() {
+        jbtnRegresar.setFont(new java.awt.Font("Arial Narrow", 0, 16)); // NOI18N
+        jbtnRegresar.setText("Regresar");
+        jbtnRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonRegresarActionPerformed(evt);
+                jbtnRegresarActionPerformed(evt);
             }
         });
-        jPanel1.add(botonRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, -1, -1));
+        jPanel1.add(jbtnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 510, 110, -1));
 
         textNombre.setFont(new java.awt.Font("Arial Narrow", 1, 24)); // NOI18N
         textNombre.setForeground(new java.awt.Color(255, 255, 255));
@@ -98,8 +127,8 @@ public class Cliente extends javax.swing.JFrame {
 
         textEdad.setFont(new java.awt.Font("Arial Narrow", 1, 24)); // NOI18N
         textEdad.setForeground(new java.awt.Color(255, 255, 255));
-        textEdad.setText("Edad:");
-        jPanel1.add(textEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
+        textEdad.setText("Numero:");
+        jPanel1.add(textEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, -1, -1));
 
         jtextoIngresarNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,6 +158,40 @@ public class Cliente extends javax.swing.JFrame {
         });
         jPanel1.add(jtextoIngresarFechaN, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 240, 30));
 
+        textEdad2.setFont(new java.awt.Font("Arial Narrow", 1, 24)); // NOI18N
+        textEdad2.setForeground(new java.awt.Color(255, 255, 255));
+        textEdad2.setText("Calle:");
+        jPanel1.add(textEdad2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, -1, -1));
+
+        textEdad3.setFont(new java.awt.Font("Arial Narrow", 1, 24)); // NOI18N
+        textEdad3.setForeground(new java.awt.Color(255, 255, 255));
+        textEdad3.setText("Colonia:");
+        jPanel1.add(textEdad3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, -1, -1));
+
+        txfCalle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txfCalleActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txfCalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, 240, 30));
+
+        txfColonia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txfColoniaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txfColonia, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 410, 240, 30));
+
+        jlbRegistroCliente1.setFont(new java.awt.Font("Arial Narrow", 1, 36)); // NOI18N
+        jlbRegistroCliente1.setForeground(new java.awt.Color(255, 255, 255));
+        jlbRegistroCliente1.setText("Registrar cliente");
+        jPanel1.add(jlbRegistroCliente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, -1, -1));
+
+        jlbRegistroCliente2.setFont(new java.awt.Font("Arial Narrow", 1, 36)); // NOI18N
+        jlbRegistroCliente2.setForeground(new java.awt.Color(255, 255, 255));
+        jlbRegistroCliente2.setText("Registrar cliente");
+        jPanel1.add(jlbRegistroCliente2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -137,23 +200,27 @@ public class Cliente extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jtextoEdadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtextoEdadActionPerformed
+    private void txfNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfNumeroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jtextoEdadActionPerformed
+    }//GEN-LAST:event_txfNumeroActionPerformed
 
-    private void botonCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCrearActionPerformed
+    private void jbtnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRegistrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_botonCrearActionPerformed
+        
+    }//GEN-LAST:event_jbtnRegistrarActionPerformed
 
-    private void botonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarActionPerformed
+    private void jbtnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRegresarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_botonRegresarActionPerformed
+        Principal principal = new Principal();
+        principal.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jbtnRegresarActionPerformed
 
     private void jtextoIngresarNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtextoIngresarNombreActionPerformed
         // TODO add your handling code here:
@@ -171,55 +238,49 @@ public class Cliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtextoIngresarFechaNActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void txfCalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfCalleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txfCalleActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Cliente().setVisible(true);
-            }
-        });
-    }
+    private void txfColoniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfColoniaActionPerformed
+        // TODO add your handling code here:
+        
+        String nombres = textNombre.getText();
+        String apellidoP = textApellidoP.getText();
+        String apellidoM = textApellidoM.getText();
+        String fechaNacimiento = textFechaN.getText();
+        String calle = txfCalle.getText();
+        String colonia = txfColonia.getText();
+        String numero = txfNumero.getText();
+        
+        Cliente cliente = new Cliente(nombres, apellidoP, apellidoM, fechaNacimiento,
+        calle, colonia, numero);
+        
+        
+        
+    }//GEN-LAST:event_txfColoniaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botonCrear;
-    private javax.swing.JButton botonRegresar;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jtextoEdad;
+    private javax.swing.JButton jbtnRegistrar;
+    private javax.swing.JButton jbtnRegresar;
+    private javax.swing.JLabel jlbRegistroCliente;
+    private javax.swing.JLabel jlbRegistroCliente1;
+    private javax.swing.JLabel jlbRegistroCliente2;
     private javax.swing.JTextField jtextoIngresarApellidoM;
     private javax.swing.JTextField jtextoIngresarApellidoP;
     private javax.swing.JTextField jtextoIngresarFechaN;
     private javax.swing.JTextField jtextoIngresarNombre;
     private javax.swing.JLabel textApellidoM;
     private javax.swing.JLabel textApellidoP;
-    private javax.swing.JLabel textCrearCuenta;
     private javax.swing.JLabel textEdad;
+    private javax.swing.JLabel textEdad2;
+    private javax.swing.JLabel textEdad3;
     private javax.swing.JLabel textFechaN;
     private javax.swing.JLabel textNombre;
+    private javax.swing.JTextField txfCalle;
+    private javax.swing.JTextField txfColonia;
+    private javax.swing.JTextField txfNumero;
     // End of variables declaration//GEN-END:variables
 }

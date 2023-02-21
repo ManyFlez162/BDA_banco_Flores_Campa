@@ -26,7 +26,7 @@ import utils.ConfiguracionPaginado;
  */
 public class TransferenciasDAO implements ITransferenciasDAO{
 
-    private static final Logger LOG = Logger.getLogger(ClientesDAO.class.getName());
+    private static final Logger LOG = Logger.getLogger(TransferenciasDAO.class.getName());
     
     private final IConexionBD generadorConexiones;
 
@@ -58,7 +58,7 @@ public class TransferenciasDAO implements ITransferenciasDAO{
                 return transferencia;
             }
             
-            throw new PersistenciaException("Cliente registrado, pero id no generado");
+            throw new PersistenciaException("Transferencia registrada, pero id no generado");
             
             
         } catch(SQLException e){
@@ -122,7 +122,7 @@ public class TransferenciasDAO implements ITransferenciasDAO{
             return listaTransferencia;
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
-            throw new PersistenciaException("No fue posible consultar el cliente");
+            throw new PersistenciaException("No fue posible revisar la transacción");
         }
     }
     

@@ -95,6 +95,22 @@ begin
 end // 
 DELIMITER ;
 
+-- Trigger para retiros sin cuenta
+DELIMITER //
+start transaction;
+	create trigger retirar
+	after insert on retiros
+	for each row
+	begin
+		update Cuentas 
+		set 
+			saldo = saldo - (select cantidad from retiros where id_retiro=new.id_retiro) 
+		where id_cuenta = new.id_cuenta;
+	end;
+commit;
+rollback; //
+DELIMITER ;
+
 -- Stored procedure para actualizar datos del cliente
 DELIMITER //
 create procedure actualiza_cliente(

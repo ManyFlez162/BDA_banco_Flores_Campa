@@ -6,15 +6,16 @@ package presentacion;
 
 /**
  *
- * @author juanc
+ * @author 233215 y 233301
  */
-public class Inicio extends javax.swing.JFrame {
-
+public class InicioSesion extends javax.swing.JFrame {
+    
     /**
-     * Creates new form Inicio
+     * Creates new form InicioSesion
      */
-    public Inicio() {
+    public InicioSesion() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -31,7 +32,6 @@ public class Inicio extends javax.swing.JFrame {
         textIngresar = new javax.swing.JLabel();
         jtextoIngresarNumeroCuenta = new javax.swing.JTextField();
         botonIngresar = new javax.swing.JButton();
-        botonRetiroSC = new javax.swing.JButton();
         botonCrearCuenta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -63,12 +63,7 @@ public class Inicio extends javax.swing.JFrame {
                 botonIngresarActionPerformed(evt);
             }
         });
-        jPanel1.add(botonIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 80, -1));
-
-        botonRetiroSC.setFont(new java.awt.Font("Arial Narrow", 0, 16)); // NOI18N
-        botonRetiroSC.setText("Retiro sin cuenta");
-        botonRetiroSC.setToolTipText("");
-        jPanel1.add(botonRetiroSC, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, -1, -1));
+        jPanel1.add(botonIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 80, -1));
 
         botonCrearCuenta.setFont(new java.awt.Font("Arial Narrow", 0, 16)); // NOI18N
         botonCrearCuenta.setText("Crear cuenta");
@@ -77,7 +72,7 @@ public class Inicio extends javax.swing.JFrame {
                 botonCrearCuentaActionPerformed(evt);
             }
         });
-        jPanel1.add(botonCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 260, -1, -1));
+        jPanel1.add(botonCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -95,55 +90,24 @@ public class Inicio extends javax.swing.JFrame {
 
     private void jtextoIngresarNumeroCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtextoIngresarNumeroCuentaActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jtextoIngresarNumeroCuentaActionPerformed
 
     private void botonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIngresarActionPerformed
         // TODO add your handling code here:
+        TransferenciaForm transferencia = new TransferenciaForm();
+        transferencia.setVisible(true);
+        dispose();
     }//GEN-LAST:event_botonIngresarActionPerformed
 
     private void botonCrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCrearCuentaActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_botonCrearCuentaActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Inicio().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCrearCuenta;
     private javax.swing.JButton botonIngresar;
-    private javax.swing.JButton botonRetiroSC;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jtextoIngresarNumeroCuenta;
     private javax.swing.JLabel textIngresar;

@@ -4,7 +4,8 @@
  */
 package interfaces;
 
-import dominio.RetiroSinC;
+import dominio.Retiro;
+import excepciones.PersistenciaException;
 
 
 /**
@@ -13,6 +14,7 @@ import dominio.RetiroSinC;
  */
 public interface IRetirosDAO {
     
-    public RetiroSinC retirar();
+    public Retiro retirar(Retiro retiro) throws PersistenciaException;
+    public Retiro consultar(int idRetiro);
     
 }

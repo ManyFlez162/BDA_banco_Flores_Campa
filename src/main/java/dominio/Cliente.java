@@ -46,6 +46,18 @@ public class Cliente {
         this.numero = numero;
     }
     
+    /**
+     * Constructor con todos los atributos
+     * @param id
+     * @param nombres
+     * @param apellido_Paterno
+     * @param apellido_Materno
+     * @param fecha_Nacimiento
+     * @param edad
+     * @param calle
+     * @param colonia
+     * @param numero 
+     */
     public Cliente(Integer id, String nombres, String apellido_Paterno, String apellido_Materno, 
             String fecha_Nacimiento, int edad, String calle, String colonia, String numero) {
         this.id = id;
@@ -153,30 +165,58 @@ public class Cliente {
         this.fecha_Nacimiento = fecha_Nacimiento;
     }
 
+    /**
+     * Método que devuelve la calle
+     * @return 
+     */
     public String getCalle() {
         return calle;
     }
 
+    /**
+     * Método que establece la calle
+     * @param calle 
+     */
     public void setCalle(String calle) {
         this.calle = calle;
     }
 
+    /**
+     * Método que devuelve la colonia
+     * @return 
+     */
     public String getColonia() {
         return colonia;
     }
 
+    /**
+     * Método que establece la colonia del cliente
+     * @param colonia 
+     */
     public void setColonia(String colonia) {
         this.colonia = colonia;
     }
 
+    /**
+     * Método que devuelve el numero de casa 
+     * @return 
+     */
     public String getNumero() {
         return numero;
     }
 
+    /**
+     * Método que establece el numero de casa del usuario
+     * @param numero 
+     */
     public void setNumero(String numero) {
         this.numero = numero;
     }
 
+    /**
+     * Método que devuelve la información general de la clase
+     * @return 
+     */
     @Override
     public String toString() {
         return "Cliente{" + "id=" + id + ", nombres=" + nombres + ", apellido_Paterno=" + apellido_Paterno + ", apellido_Materno=" + apellido_Materno + ", edad=" + edad + ", fecha_Nacimiento=" + fecha_Nacimiento + ", calle=" + calle + ", colonia=" + colonia + ", numero=" + numero + '}';

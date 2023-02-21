@@ -37,6 +37,11 @@ public class Cuenta {
         this.id_cliente = id_cliente;
     }
 
+    /**
+     * Método constructor con sólo saldo y el id del cliente
+     * @param saldo
+     * @param id_cliente 
+     */
     public Cuenta(float saldo, int id_cliente) {
         this.saldo = saldo;
         this.id_cliente = id_cliente;

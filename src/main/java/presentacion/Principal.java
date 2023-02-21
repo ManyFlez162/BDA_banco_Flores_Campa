@@ -6,7 +6,7 @@ package presentacion;
 
 /**
  *
- * @author juanc
+ * @author 233215 y 233301
  */
 public class Principal extends javax.swing.JFrame {
 
@@ -15,6 +15,7 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -55,7 +56,7 @@ public class Principal extends javax.swing.JFrame {
                 botonCrearCuentaActionPerformed(evt);
             }
         });
-        jPanel1.add(botonCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 130, 40));
+        jPanel1.add(botonCrearCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 160, 40));
 
         botonRetiroSC.setFont(new java.awt.Font("Arial Narrow", 0, 20)); // NOI18N
         botonRetiroSC.setText("Retiro Sin Cuenta");
@@ -91,14 +92,21 @@ public class Principal extends javax.swing.JFrame {
 
     private void botonCrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCrearCuentaActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_botonCrearCuentaActionPerformed
 
     private void botonRetiroSCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRetiroSCActionPerformed
         // TODO add your handling code here:
+        RetiroForm retiro = new RetiroForm();
+        retiro.setVisible(true);
+        dispose();
     }//GEN-LAST:event_botonRetiroSCActionPerformed
 
     private void botonClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonClienteActionPerformed
         // TODO add your handling code here:
+        InicioSesion inicio = new InicioSesion();
+        inicio.setVisible(true);
+        dispose();
     }//GEN-LAST:event_botonClienteActionPerformed
 
     /**
